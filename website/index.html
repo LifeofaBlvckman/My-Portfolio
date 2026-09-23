@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adejumo Olaoluwa — Web Developer</title>
+<meta name="description" content="Adejumo Olaoluwa — web developer in Lagos, Nigeria.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="frame"></div>
+
+<!-- Overlay menu -->
+<div class="menu" id="menu">
+  <a href="index.html" class="active">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="about.html">About</a>
+  <a href="about.html#quote">Get a quote</a>
+  <div class="menu-socials">
+    <a href="https://github.com/LifeofaBlvckman" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/olaoluwa-adejumo-304ba9320" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:prettykoke123@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- Cubes -->
+  <div class="cube" style="--s:70px;top:6%;right:7%">
+    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
+  </div>
+  <div class="cube dim" style="--s:44px;top:22%;right:26%">
+    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#4a3c36"/><polygon points="8,28 50,52 50,96 8,72" fill="#332a25"/><polygon points="92,28 50,52 50,96 92,72" fill="#241d19"/></svg>
+  </div>
+  <div class="cube" style="--s:62px;bottom:8%;left:16%">
+    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
+  </div>
+  <div class="cube" style="--s:38px;bottom:3%;left:29%">
+    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
+  </div>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="brand">Blvck<span class="o">man</span></div>
+    <div class="spacer"></div>
+  </div>
+
+  <!-- Social rail -->
+  <div class="rail-social">
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/olaoluwa-adejumo-304ba9320" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/LifeofaBlvckman" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="mailto:prettykoke123@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Hello</div>
+      <h1>I'm <b>Adejumo Olaoluwa</b></h1>
+      <p class="hero-sub">A web developer based in Lagos.</p>
+      <a href="about.html" class="btn btn-solid">Learn more</a>
+    </div>
+    <div class="hero-vis reveal">
+      <dotlottie-wc src="https://lottie.host/2af8344c-f50f-4134-a5bb-4ed073a7e947/w43GpZnn4x.lottie" autoplay loop></dotlottie-wc>
+    </div>
+    <div class="rail-scroll"><span class="vt">scroll down</span><i class="fas fa-chevron-down"></i></div>
+  </section>
+
+</div>
+
+<div class="cb-wrap">
+  <div class="cb-win" id="cbWin">
+    <div class="cb-head"><span>Ask about my work</span><button id="cbClose" aria-label="Close"><i class="fas fa-times"></i></button></div>
+    <div class="cb-msgs" id="cbMsgs"><div class="cmsg bot">Hey! I'm Ola's assistant. Ask me about his work, his stack, or how to hire him.</div></div>
+    <div class="cb-chips" id="cbChips">
+      <button class="chip">What is Sojourn?</button>
+      <button class="chip">Show me projects</button>
+      <button class="chip">What's his stack?</button>
+      <button class="chip">How much does it cost?</button>
+      <button class="chip">How do I contact him?</button>
+    </div>
+    <div class="cb-inp"><input type="text" id="cbInput" placeholder="Ask anything…" autocomplete="off"><button id="cbSend" aria-label="Send"><i class="fas fa-arrow-up"></i></button></div>
+  </div>
+  <button class="cb-trigger" id="cbTrigger" aria-label="Open chat"><i class="fas fa-comment-dots"></i></button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
