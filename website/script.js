@@ -55,12 +55,15 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
     { id:'cv', match:/\bcv\b|resume|résumé|curriculum/,
       say:["His CV is on the CV page — you can read it there or download the PDF. Menu > CV."] },
 
+    { id:'eko', match:/eko|streets|\bgame\b|multiplayer|three\.?js/,
+      say:["Eko Streets is a Lagos-set open-world browser game Ola built — real city districts, nine story missions, drivable vehicles, a police wanted system and real-time multiplayer for up to 16 players. Play it from the Projects page."] },
+
     { id:'sojourn', match:/sojourn|shortlet|booking platform|abuja|port harcourt|benin/,
       say:["Sojourn Nigeria (sojourn.ng) is a shortlet apartment booking platform live in Lagos, Abuja, Port Harcourt and Benin. Ola is the lead developer — he handles all implementation while the founder owns product direction.",
            "On Sojourn, Ola built and maintains the Next.js 14 frontend, a NestJS + Supabase backend, Paystack payment flows, booking hold and auto-cancel logic, and the admin dashboard."] },
 
     { id:'projects', match:/project|portfolio|work|built|build|show me|what has he|case stud/,
-      say:["Seven featured projects: Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, Primusige, Drivers@Work, SequencePro and The Neo Consult. All have live links on the Projects page.",
+      say:["Eight featured projects: Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, Primusige, Drivers@Work, SequencePro, The Neo Consult and Eko Streets. All have live links on the Projects page.",
            "His range goes from a four-city booking platform down to fashion storefronts and photography portfolios. Head to Projects for live links."] },
 
     { id:'neo', match:/neo ?consult/,
