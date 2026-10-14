@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Adejumo Olaoluwa</title>
+<meta name="description" content="CV of Adejumo Olaoluwa — full-stack web developer in Lagos, Nigeria, learning cybersecurity. Next.js, NestJS, Supabase, Paystack.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+<script src="preloader.js"></script>
+
+<div class="frame"></div>
+
+<div class="menu" id="menu">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="about.html">About</a>
+  <a href="cv.html" class="active">CV</a>
+  <a href="about.html#quote">Get a quote</a>
+  <div class="menu-socials">
+    <a href="https://github.com/LifeofaBlvckman" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/olaoluwa-adejumo-304ba9320" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:prettykoke123@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="cube" style="--s:54px;top:5%;right:7%">
+    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
+  </div>
+  <div class="cube dim" style="--s:40px;bottom:5%;left:4%">
+    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#4a3c36"/><polygon points="8,28 50,52 50,96 8,72" fill="#332a25"/><polygon points="92,28 50,52 50,96 92,72" fill="#241d19"/></svg>
+  </div>
+
+  <div class="topbar">
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="brand">Blvck<span class="o">man</span></div>
+    <div class="spacer"></div>
+  </div>
+
+  <main class="cv-wrap">
+    <header class="cv-top reveal">
+      <h1>Adejumo <b>Olaoluwa</b></h1>
+      <p class="cv-role">Web Developer | Full-Stack (React, Next.js, TypeScript, Supabase)</p>
+      <div class="cv-contact">
+        <span>Lagos, Nigeria</span>
+        <a href="tel:+2348169011311">+234 816 901 1311</a>
+        <a href="mailto:prettykoke123@gmail.com">prettykoke123@gmail.com</a>
+        <a href="https://github.com/LifeofaBlvckman" target="_blank" rel="noopener">github.com/LifeofaBlvckman</a>
+        <a href="https://blvckman.online">blvckman.online</a>
+      </div>
+      <div class="cv-actions">
+        <a class="btn btn-solid" href="Adejumo_Olaoluwa_CV.pdf" download><i class="fas fa-download"></i> Download PDF</a>
+        <a class="btn btn-line" href="about.html#quote">Get a quote</a>
+      </div>
+    </header>
+
+    <section class="cv-sec reveal">
+      <h2>PROFESSIONAL SUMMARY</h2>
+      <p>Web developer handling all implementation for Sojourn Nigeria (sojourn.ng), a live shortlet booking platform across four Nigerian cities, built on Next.js, NestJS and Supabase. Has fixed payment-critical Paystack issues, built booking logic and run domain, database and email migrations. Since 2024 has built and deployed more than 10 client websites in Nigeria and the UK, including e-commerce storefronts and portfolio sites. ALX Africa certified in Backend Development and AI for Creatives; currently learning cybersecurity.</p>
+    </section>
+
+    <section class="cv-sec reveal">
+      <h2>TECHNICAL SKILLS</h2>
+      <dl class="cv-skills">
+        <dt>Languages</dt><dd>JavaScript, TypeScript, Python, HTML, CSS</dd>
+        <dt>Backend and APIs</dt><dd>Node.js, NestJS, Flask, REST APIs, WebSockets</dd>
+        <dt>Frontend</dt><dd>React, Next.js, Three.js, responsive HTML and CSS, Lottie animations</dd>
+        <dt>Databases</dt><dd>Supabase (PostgreSQL), MySQL</dd>
+        <dt>Payments and Integrations</dt><dd>Paystack, Stripe, Resend, Claude API (Anthropic SDK)</dd>
+        <dt>Deployment and Tools</dt><dd>Render, Vercel, Netlify, Git, GitHub, Postman, DNS configuration, Claude Code</dd>
+        <dt class="cy">Security</dt><dd>Cybersecurity (currently learning)</dd>
+        <dt>Spoken Languages</dt><dd>English (Fluent), Yoruba (Fluent)</dd>
+      </dl>
+    </section>
+
+    <section class="cv-sec reveal">
+      <h2>WORK EXPERIENCE</h2>
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>Software Developer, Sojourn Nigeria (sojourn.ng)</h3><span class="cv-date">Mar 2026 – Present</span></div>
+        <p class="cv-meta">Lagos | SEO Specialist, promoted to Developer Aug 2026 | TypeScript, Next.js, NestJS, Supabase</p>
+        <ul>
+          <li>Took over as sole developer of a live booking platform serving four cities, owning every change from requirement to release.</li>
+          <li>Fixed a critical payment bug that left paid Paystack bookings unconfirmed, so bookings now confirm automatically on payment.</li>
+          <li>Built booking holds that reserve dates during checkout and auto-cancel unpaid bookings, releasing those dates to other guests.</li>
+          <li>Migrated the platform database and moved the live site to the sojourn.ng domain.</li>
+          <li>Restored transactional email by migrating from Zoho SMTP to Resend after SMTP was blocked.</li>
+          <li>Fixed location search by standardising city data, and corrected same-day check-ins.</li>
+          <li>Set up technical SEO (metadata, sitemap, robots.txt) and prototyped a Claude API chatbot.</li>
+        </ul>
+      </div>
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>Freelance Web Developer</h3><span class="cv-date">2024 – Present</span></div>
+        <p class="cv-meta">Self-employed, Lagos (Remote) | HTML, CSS, JavaScript, Supabase, Netlify, Vercel</p>
+        <ul>
+          <li>Design, build and deploy client websites end to end, with more than 10 sites delivered.</li>
+          <li>Built primusige.com, a photography portfolio with video reel sections and an events showcase.</li>
+          <li>Built CityGirl Wardrobe, a Supabase-backed fashion storefront with an admin panel for managing products.</li>
+          <li>Delivered a study-abroad site for Neo Consult (Abuja and Leeds) with an AI chatbot.</li>
+          <li>Launched qumifashion.com on Netlify and maintain it, including domain setup, branding fixes and video features.</li>
+          <li>Building the website for a UK-based education agency (in progress).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cv-sec reveal">
+      <h2>PROJECTS</h2>
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>Eko Streets</h3></div>
+        <p class="cv-meta">React, Three.js (React Three Fiber), Rapier, Vite, Node.js</p>
+        <ul>
+          <li>Built a Lagos-set open-world browser game with real city districts, nine story missions, drivable vehicles and a police wanted system.</li>
+          <li>Added real-time multiplayer for rooms of up to 16 players, with chat, shared traffic and saved games.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cv-sec reveal">
+      <h2>CERTIFICATIONS AND EDUCATION</h2>
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>ALX Africa: Backend Developer Certificate; AI for Creatives Certificate</h3><span class="cv-date">Completed</span></div>
+      </div>
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>B.Sc. Computer Science, National Open University of Nigeria (NOUN)</h3><span class="cv-date">In progress</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p class="f-copy">&copy; 2026 Adejumo Olaoluwa. All rights reserved.</p></footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
