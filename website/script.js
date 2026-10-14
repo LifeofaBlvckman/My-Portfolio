@@ -57,7 +57,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
            "His range goes from a four-city booking platform down to fashion storefronts and photography portfolios. Head to Projects for live links."] },
 
     { id:'neo', match:/neo ?consult/,
-      say:["The Neo Consult is a live site in Ola's portfolio — www.theneoconsult.com. It has a card with a live link on the Projects page."] },
+      say:["The Neo Consult (www.theneoconsult.com) is a study-abroad consultancy site with services, a course finder, a blog, an apply flow and a chat assistant. Live link on the Projects page."] },
 
     { id:'qumi', match:/qumi/,
       say:["QUMI Fashion is a bold editorial site for a fashion styling brand — services, portfolio and a consultation booking flow. Live at qumifashion.com."] },
