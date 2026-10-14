@@ -223,12 +223,25 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
 .cmsg.bot{background:rgba(255,255,255,.05);align-self:flex-start}
 .cmsg.user{background:var(--orange);color:#fff;align-self:flex-end}
 .cb-inp{display:flex;border-top:1px solid var(--hair)}
-.cb-inp input{flex:1;background:transparent;border:none;padding:.75rem .9rem;color:var(--white);font-size:.78rem;outline:none;font-family:inherit}
+.cb-inp input{flex:1;min-width:0;background:transparent;border:none;padding:.75rem .9rem;color:var(--white);font-size:.78rem;outline:none;font-family:inherit}
 .cb-inp button{width:42px;border:none;background:none;color:var(--orange);cursor:pointer}
 .dots span{display:inline-block;width:5px;height:5px;background:var(--muted);border-radius:50%;margin-right:3px;animation:blink 1.2s infinite}
 .dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
 @keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
-@media(max-width:760px){.cb-wrap{bottom:1.6rem;right:1.6rem}.cb-win{width:min(80vw,290px)}}
+@media(max-width:760px){
+  .cb-wrap{bottom:1.1rem;right:1.1rem}
+  /* chat opens as a bottom sheet over a dimmed page: full width, never half-covering buttons */
+  .cb-wrap.open::before{content:'';position:fixed;inset:0;background:rgba(10,8,7,.62)}
+  .cb-win{position:fixed;left:.75rem;right:.75rem;bottom:.75rem;width:auto;
+    height:min(62vh,540px);height:min(62dvh,540px);max-height:calc(100vh - 1.5rem);max-height:calc(100dvh - 1.5rem)}
+  .cb-inp input{font-size:1rem}            /* 16px: stops phones zooming the page when the box is tapped */
+  .cb-inp button{width:48px}
+  .cmsg{font-size:.9rem}
+  .chip{font-size:.78rem;padding:.4rem .8rem}
+  /* keep the floating chat button off the last buttons / footer */
+  .hero{padding-bottom:6.5rem}
+  footer{padding-bottom:5.5rem}
+}
 
 :focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 
