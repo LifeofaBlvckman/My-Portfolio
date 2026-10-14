@@ -1,0 +1,3 @@
+# The site lives in /website, so publish that folder (no build step).
+[build]
+  publish = "website"
