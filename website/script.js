@@ -48,6 +48,13 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
       say:["Hey! I'm Ola's assistant. Ask me about his work, his stack, or how to hire him.",
            "Hi there. Want to hear about Sojourn, his client work, or his skills?"] },
 
+    { id:'cyber', match:/cyber|security|hack|pentest|infosec|secure/,
+      say:["Yes — Ola is learning cybersecurity alongside web development: how attacks work and how to defend against them, so the sites he builds are safer from the start.",
+           "Cybersecurity is the newest thing on his list. He's learning how attacks work and how to defend against them, and it's already part of how he thinks about the web."] },
+
+    { id:'cv', match:/\bcv\b|resume|résumé|curriculum/,
+      say:["His CV is on the CV page — you can read it there or download the PDF. Menu > CV."] },
+
     { id:'sojourn', match:/sojourn|shortlet|booking platform|abuja|port harcourt|benin/,
       say:["Sojourn Nigeria (sojourn.ng) is a shortlet apartment booking platform live in Lagos, Abuja, Port Harcourt and Benin. Ola is the lead developer — he handles all implementation while the founder owns product direction.",
            "On Sojourn, Ola built and maintains the Next.js 14 frontend, a NestJS + Supabase backend, Paystack payment flows, booking hold and auto-cancel logic, and the admin dashboard."] },
@@ -57,7 +64,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
            "His range goes from a four-city booking platform down to fashion storefronts and photography portfolios. Head to Projects for live links."] },
 
     { id:'neo', match:/neo ?consult/,
-      say:["The Neo Consult (www.theneoconsult.com) is a study-abroad consultancy site with services, a course finder, a blog, an apply flow and a chat assistant. Live link on the Projects page."] },
+      say:["The Neo Consult (www.theneoconsult.com) is a study-abroad site Ola built for Neo Consult (Abuja and Leeds) — services, a course finder, a blog, an apply flow and an AI chatbot. Live link on the Projects page."] },
 
     { id:'qumi', match:/qumi/,
       say:["QUMI Fashion is a bold editorial site for a fashion styling brand — services, portfolio and a consultation booking flow. Live at qumifashion.com."] },
@@ -84,7 +91,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
       say:["Ola has shipped live payment flows with both Paystack (Nigeria) and Stripe (international), including webhook hardening and booking status handling."] },
 
     { id:'skills', match:/skill|stack|tech|tools|know|language|experienc/,
-      say:["Full stack: React and Next.js on the frontend, Node/NestJS with Supabase or Firebase on the backend, plus Python, Git and payment integrations. Full grid on the About page."] },
+      say:["Full stack: React and Next.js on the frontend, Node/NestJS with Supabase or Firebase on the backend, plus Python, Git and payment integrations — and he's currently learning cybersecurity. Full grid on the About page."] },
 
     { id:'ai', match:/\bai\b|artificial|machine learning|chatbot|automat/,
       say:["Ola completed ALX Africa's AI for Creatives programme and applies AI practically — this chatbot, AI-assisted tooling, and automated video production in SequencePro."] },
@@ -131,9 +138,11 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   }
 
   /* ── AI backend ──
-     Your server's address (see the server README). Leave empty to use only the
-     built-in answers above, e.g. while the server isn't deployed yet. */
-  const API_BASE = 'https://YOUR-SERVICE.onrender.com';
+     The Render service "blvckman-assistant" (POST /api/chat, POST /api/speak). The API key lives there
+     as a Render environment variable, never in this file. Its CORS setting must allow this site's origin.
+     If it's asleep, unreachable or fails, the built-in answers above take over. */
+  const API_BASE = 'https://blvckman-assistant.onrender.com';
+  let aiDown = false;          // set if the endpoint doesn't exist (wrong URL), so we stop retrying this visit
 
   const history = [];          // what's sent to the AI so it remembers the conversation
   let speakReplies = false;    // speaker toggle in the header
@@ -157,7 +166,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   }
 
   async function aiReply(spoken) {
-    if (!API_BASE || API_BASE.includes('YOUR-SERVICE')) throw new Error('no backend');
+    if (aiDown) throw new Error('no backend');
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 25000);
     try {
@@ -165,6 +174,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: history, spoken }), signal: ctrl.signal
       });
+      if (res.status === 404) aiDown = true;
       const data = await res.json().catch(() => ({}));
       if (res.status === 429) return { text: data.detail || 'Too many messages. Try again shortly.', limited: true };
       if (!res.ok || !data.reply) throw new Error('bad response');

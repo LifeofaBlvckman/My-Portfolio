@@ -40,7 +40,7 @@ ul{list-style:none}
   pointer-events:none;z-index:500;
 }
 .page{
-  position:relative;z-index:2;
+  position:relative;
   margin:34px;
   background:var(--bg-inner);
   min-height:calc(100vh - 68px);
@@ -54,7 +54,7 @@ ul{list-style:none}
 }
 
 /* ── Floating cubes ── */
-.cube{position:absolute;width:var(--s,54px);height:var(--s,54px);pointer-events:none;z-index:3;opacity:.95}
+.cube{position:absolute;width:var(--s,54px);height:var(--s,54px);pointer-events:none;z-index:0;opacity:.95}
 .cube svg{width:100%;height:100%;display:block}
 .cube.dim{opacity:.35}
 
@@ -76,7 +76,7 @@ ul{list-style:none}
 /* ── Overlay menu ── */
 .menu{
   position:fixed;inset:34px;background:rgba(19,15,13,.985);
-  z-index:700;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;
+  z-index:590;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;overflow-y:auto;
   opacity:0;pointer-events:none;transition:opacity .3s;
 }
 .menu.open{opacity:1;pointer-events:auto}
@@ -400,3 +400,109 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
 
 /* work-card CTA sits small, left-aligned (flex column would stretch it) */
 .work-card .btn{align-self:flex-start}
+
+
+/* ==========================================================
+   LAYERING FIXES
+   - the topbar (burger) now sits above the open menu, so the burger can close it
+   - floating cubes sit behind text, photos and buttons instead of on top of them
+   ========================================================== */
+.hero,section,.page-head,footer{position:relative;z-index:1}
+@media(max-width:760px){
+  .cube{width:calc(var(--s,54px)*.6);height:calc(var(--s,54px)*.6)}
+  .cube.dim{display:none}
+}
+
+/* ==========================================================
+   CYBERSECURITY BADGES + CV LINKS
+   ========================================================== */
+.hero-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.8rem}
+.hero-tags span{display:inline-flex;align-items:center;gap:.45rem;font-size:.74rem;letter-spacing:.03em;padding:.3rem .85rem;border:1px solid var(--line);color:var(--muted);border-radius:20px}
+.hero-tags .cy{border-color:rgba(62,230,196,.45);color:#3ee6c4;background:rgba(62,230,196,.07)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.skill.cy i{color:#3ee6c4}
+.skill.cy:hover i{color:#3ee6c4}
+.skill em{display:block;font-style:normal;font-size:.62rem;letter-spacing:.08em;color:#3ee6c4;text-transform:uppercase;margin-top:-.35rem}
+.about-copy .hl-cy{color:#3ee6c4}
+.about-btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.6rem}
+
+/* ==========================================================
+   LOGO INTRO (preloader.js)
+   ========================================================== */
+#preloader{position:fixed;inset:0;z-index:2000;background:#130f0d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;
+  background-image:radial-gradient(circle at 50% 46%,rgba(226,88,42,.16),transparent 60%);transition:transform .85s cubic-bezier(.76,0,.24,1);cursor:pointer}
+#preloader::before{content:'';position:absolute;inset:34px;border:1px solid var(--line);pointer-events:none}
+.pl-logo{width:min(560px,74vw);height:auto;overflow:visible}
+.pl-bar{width:min(220px,40vw);height:2px;background:rgba(242,239,236,.12);overflow:hidden}
+.pl-bar i{display:block;height:100%;background:var(--orange);transform-origin:left;animation:plBar 2.3s cubic-bezier(.65,0,.35,1) both}
+.pl-mw,.pl-mo,.pl-l,.pl-sheen{transform-box:fill-box}
+.pl-mw{animation:plWhite .95s cubic-bezier(.2,.9,.25,1.12) .15s both}
+.pl-mo{animation:plOrange .95s cubic-bezier(.2,.9,.25,1.12) .15s both}
+.pl-sheen{animation:plSheen .95s ease-in-out 1.15s both}
+.pl-l{animation:plLetter .7s cubic-bezier(.2,.8,.2,1) calc(1.05s + var(--i) * .07s) both}
+@keyframes plWhite{from{transform:translate(-130px,-130px);opacity:0}to{transform:none;opacity:1}}
+@keyframes plOrange{from{transform:translate(130px,130px);opacity:0}to{transform:none;opacity:1}}
+@keyframes plSheen{from{transform:translateX(-120px) skewX(-22deg)}to{transform:translateX(560px) skewX(-22deg)}}
+@keyframes plLetter{from{transform:translateY(150px)}to{transform:none}}
+@keyframes plBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+#preloader.pl-out{transform:translateY(-100%);pointer-events:none}
+#preloader.pl-out .pl-logo,#preloader.pl-out .pl-bar{opacity:0;transition:opacity .35s ease}
+/* hold the page's own entrance animations until the intro lifts */
+.pl-active .hero-copy .eyebrow,.pl-active .hero-copy h1,.pl-active .hero-copy .hero-sub,.pl-active .hero-copy .hero-tags,.pl-active .hero-copy .btn,
+.pl-active .hero-vis,.pl-active .frame,.pl-active .page-head h1,.pl-active .page-head p,.pl-active .eyebrow::before{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){
+  #preloader *{animation:none!important}
+  #preloader{transition:opacity .2s}
+  #preloader.pl-out{transform:none;opacity:0}
+}
+
+/* ==========================================================
+   CV PAGE
+   ========================================================== */
+.cv-wrap{padding:2.5rem clamp(1.5rem,6vw,6rem) 4.5rem;max-width:1100px;margin:0 auto}
+.cv-top h1{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:300}
+.cv-top h1 b{font-weight:700}
+.cv-role{color:var(--orange-lt);font-size:1rem;margin:.5rem 0 1rem}
+.cv-contact{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;color:var(--muted);font-size:.84rem}
+.cv-contact a:hover{color:var(--orange)}
+.cv-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.cv-sec{border-top:1px solid var(--line);padding:1.6rem 0 0;margin-top:2.4rem}
+.cv-sec h2{font-size:.78rem;letter-spacing:.2em;color:var(--orange);font-weight:600;margin-bottom:1.2rem;break-after:avoid}
+.cv-sec p,.cv-sec li,.cv-sec dd{color:var(--muted);font-size:.9rem;line-height:1.75}
+.cv-sec ul{margin-top:.4rem}
+.cv-sec li{padding-left:1.1rem;position:relative}
+.cv-sec li::before{content:'';position:absolute;left:0;top:.95em;width:6px;height:1px;background:var(--orange)}
+.cv-skills{display:grid;grid-template-columns:230px 1fr;gap:.55rem 1.4rem}
+.cv-skills dt{color:var(--white);font-weight:500;font-size:.86rem;line-height:1.75}
+.cv-skills .cy{color:#3ee6c4}
+.cv-job{margin-bottom:2rem}
+.cv-job:last-child{margin-bottom:0}
+.cv-job-head{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem 1.2rem;flex-wrap:wrap}
+.cv-job h3{font-size:1.04rem;font-weight:600}
+.cv-date{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.76rem;color:var(--muted-2);letter-spacing:.04em}
+.cv-meta{color:var(--orange-lt);font-size:.8rem;margin:.25rem 0 .6rem}
+@media(max-width:700px){.cv-skills{grid-template-columns:1fr;gap:0}.cv-skills dd{margin-bottom:.8rem}}
+@media print{
+  @page{size:A4}
+  html,body{background:#fff!important}
+  body{color:#1a1512}
+  .frame,.menu,.topbar,.cube,.cb-wrap,footer,.cv-actions,#preloader{display:none!important}
+  .page{margin:0;background:#fff;min-height:0;overflow:visible}
+  .cv-wrap{padding:0;max-width:none}
+  .reveal,.stagger>*{opacity:1!important;transform:none!important;animation:none!important}
+  .cv-top h1{color:#1a1512;font-size:25pt}
+  .cv-role{color:#c4461b;font-size:10.5pt;margin:.3rem 0 .6rem}
+  .cv-contact{color:#4a3f39;font-size:8.6pt;gap:.2rem 1.1rem}
+  .cv-sec{border-top:1px solid #d9cfc8;padding:.7rem 0 0;margin-top:.95rem}
+  .cv-sec h2{color:#c4461b;font-size:8pt;margin-bottom:.55rem}
+  .cv-sec p,.cv-sec li,.cv-sec dd{color:#3b322d;font-size:9pt;line-height:1.5}
+  .cv-skills{grid-template-columns:150px 1fr;gap:.15rem 1rem}
+  .cv-skills dt{color:#1a1512;font-size:8.8pt;line-height:1.5}
+  .cv-skills .cy{color:#0f8f78}
+  .cv-job h3{color:#1a1512;font-size:10pt}
+  .cv-date{color:#6b615b;font-size:8pt}
+  .cv-meta{color:#c4461b;font-size:8.4pt;margin:.1rem 0 .3rem}
+  .cv-job{margin-bottom:.8rem;break-inside:avoid}
+  .cv-sec li::before{background:#c4461b;top:.8em}
+  a{color:inherit}
+}
