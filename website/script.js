@@ -53,8 +53,11 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
            "On Sojourn, Ola built and maintains the Next.js 14 frontend, a NestJS + Supabase backend, Paystack payment flows, booking hold and auto-cancel logic, and the admin dashboard."] },
 
     { id:'projects', match:/project|portfolio|work|built|build|show me|what has he|case stud/,
-      say:["Six featured projects: Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, Primusige, Drivers@Work and SequencePro. All have live links on the Projects page.",
+      say:["Seven featured projects: Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, Primusige, Drivers@Work, SequencePro and The Neo Consult. All have live links on the Projects page.",
            "His range goes from a four-city booking platform down to fashion storefronts and photography portfolios. Head to Projects for live links."] },
+
+    { id:'neo', match:/neo ?consult/,
+      say:["The Neo Consult is a live site in Ola's portfolio — www.theneoconsult.com. It has a card with a live link on the Projects page."] },
 
     { id:'qumi', match:/qumi/,
       say:["QUMI Fashion is a bold editorial site for a fashion styling brand — services, portfolio and a consultation booking flow. Live at qumifashion.com."] },
