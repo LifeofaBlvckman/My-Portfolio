@@ -35,12 +35,15 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   const send = document.getElementById('cbSend');
   const chips = document.getElementById('cbChips');
 
+  const wrap = trig.parentElement;
   trig.addEventListener('click', () => {
-    win.style.display = 'flex'; trig.style.display = 'none'; input.focus();
+    win.style.display = 'flex'; trig.style.display = 'none'; wrap.classList.add('open');
+    if (!matchMedia('(pointer: coarse)').matches) input.focus();   // on phones, don't pop the keyboard before they ask
   });
   close.addEventListener('click', () => {
-    win.style.display = 'none'; trig.style.display = 'flex';
+    win.style.display = 'none'; trig.style.display = 'flex'; wrap.classList.remove('open');
   });
+  wrap.addEventListener('click', e => { if (e.target === wrap) close.click(); });   // tap the dimmed page to close
 
   /* Knowledge base — each topic has matchers and one or more replies */
   const KB = [
