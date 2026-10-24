@@ -18,6 +18,12 @@ document.documentElement.classList.add('js');
   });
 })();
 
+/* ══ Card highlight follows the cursor ══ */
+document.querySelectorAll('.work-card').forEach(card => card.addEventListener('pointermove', e => {
+  const r = card.getBoundingClientRect();
+  card.style.setProperty('--mx', (e.clientX - r.left) + 'px'); card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+}));
+
 /* ══ Reveal ══ */
 const ro = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

@@ -447,16 +447,28 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
 #preloader::before{content:'';position:absolute;inset:34px;border:1px solid var(--line);pointer-events:none}
 .pl-logo{width:min(560px,74vw);height:auto;overflow:visible}
 .pl-bar{width:min(220px,40vw);height:2px;background:rgba(242,239,236,.12);overflow:hidden}
-.pl-bar i{display:block;height:100%;background:var(--orange);transform-origin:left;animation:plBar 2.3s cubic-bezier(.65,0,.35,1) both}
-.pl-mw,.pl-mo,.pl-l,.pl-sheen{transform-box:fill-box}
-.pl-mw{animation:plWhite .95s cubic-bezier(.2,.9,.25,1.12) .15s both}
-.pl-mo{animation:plOrange .95s cubic-bezier(.2,.9,.25,1.12) .15s both}
-.pl-sheen{animation:plSheen .95s ease-in-out 1.15s both}
-.pl-l{animation:plLetter .7s cubic-bezier(.2,.8,.2,1) calc(1.05s + var(--i) * .07s) both}
-@keyframes plWhite{from{transform:translate(-130px,-130px);opacity:0}to{transform:none;opacity:1}}
-@keyframes plOrange{from{transform:translate(130px,130px);opacity:0}to{transform:none;opacity:1}}
-@keyframes plSheen{from{transform:translateX(-120px) skewX(-22deg)}to{transform:translateX(560px) skewX(-22deg)}}
-@keyframes plLetter{from{transform:translateY(150px)}to{transform:none}}
+.pl-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),#ffb27d);transform-origin:left;animation:plBar 2.9s cubic-bezier(.65,0,.35,1) both}
+.pl-mw,.pl-mo,.pl-gloss,.pl-glow{transform-box:fill-box}
+/* 1 · outline traces the B */
+.pl-st{stroke-dasharray:1;stroke-dashoffset:1;animation:plDraw 1.05s cubic-bezier(.65,0,.35,1) .1s both,plFade .5s ease 1.0s forwards}
+.pl-st2{animation-delay:.2s,1.05s}
+/* 2 · halves fill in and settle together */
+.pl-mw{animation:plWhite 1.05s cubic-bezier(.16,1,.3,1) .85s both}
+.pl-mo{animation:plOrange 1.05s cubic-bezier(.16,1,.3,1) .85s both}
+.pl-glow{transform-origin:center;animation:plGlow 1.7s ease-out 1.0s both}
+/* 3 · one soft gloss sweep, then the wordmark wipes in and gets its own sweep */
+.pl-gloss{animation:plGloss 1.05s cubic-bezier(.45,0,.2,1) 1.7s both}
+.pl-wipe{animation:plWipe 1.0s cubic-bezier(.45,0,.2,1) 1.45s both}
+.pl-word{animation:plRise 1.1s cubic-bezier(.16,1,.3,1) 1.45s both}
+.pl-gloss2{animation-delay:2.45s;animation-duration:.9s}
+@keyframes plDraw{to{stroke-dashoffset:0}}
+@keyframes plFade{to{opacity:0}}
+@keyframes plWhite{from{transform:translate(-22px,-22px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+@keyframes plOrange{from{transform:translate(22px,22px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+@keyframes plGlow{0%{opacity:0;transform:scale(.55)}45%{opacity:1}100%{opacity:.4;transform:scale(1.08)}}
+@keyframes plGloss{from{transform:translateX(-240px) skewX(-20deg)}to{transform:translateX(640px) skewX(-20deg)}}
+@keyframes plWipe{from{transform:translateX(0)}to{transform:translateX(1060px)}}
+@keyframes plRise{from{transform:translateY(16px)}to{transform:none}}
 @keyframes plBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 #preloader.pl-out{transform:translateY(-100%);pointer-events:none}
 #preloader.pl-out .pl-logo,#preloader.pl-out .pl-bar{opacity:0;transition:opacity .35s ease}
@@ -518,4 +530,59 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
   .cv-job{margin-bottom:.8rem;break-inside:avoid}
   .cv-sec li::before{background:#c4461b;top:.8em}
   a{color:inherit}
+}
+
+
+/* ==========================================================
+   GLOSS — restrained: glassy buttons and cards, one travelling highlight
+   on the frame, a slow sheen on the name, soft page transitions
+   ========================================================== */
+/* primary buttons: glassy gradient, lit top edge, soft coloured shadow, an occasional shine */
+.btn-solid{background:linear-gradient(180deg,#f2703f 0%,#e2582a 52%,#cd481b 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.38),inset 0 -1px 0 rgba(0,0,0,.18),0 10px 26px rgba(226,88,42,.28)}
+.btn-solid:hover{background:linear-gradient(180deg,#f68458 0%,#ea6232 52%,#d6501f 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.18),0 14px 32px rgba(226,88,42,.38)}
+.btn-solid::before{content:'';position:absolute;left:0;right:0;top:0;height:52%;background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,0));pointer-events:none}
+.hero .btn-solid::after{animation:btnIdle 6s ease-in-out 3.6s infinite}
+@keyframes btnIdle{0%,72%{left:-100%}100%{left:140%}}
+.btn-line{transition:background .25s,border-color .25s,color .25s,transform .25s}
+.btn-line:hover{background:rgba(226,88,42,.08);transform:translateY(-2px)}
+
+/* the bold part of the name catches the light every few seconds */
+.hero h1 b{background:linear-gradient(105deg,#f2efec 0%,#f2efec 42%,#ffd7c0 50%,#f2efec 58%,#f2efec 100%);background-size:260% 100%;background-position:130% 0;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:nameShine 8s ease-in-out 3.8s infinite}
+@keyframes nameShine{0%,60%{background-position:130% 0}100%{background-position:-130% 0}}
+
+/* a light that slowly travels around the frame */
+@property --fa{syntax:'<angle>';initial-value:0deg;inherits:false}
+.frame::after{content:'';position:absolute;inset:-1px;padding:1px;
+  background:conic-gradient(from var(--fa),transparent 0 74%,rgba(255,150,100,0) 74%,rgba(255,176,128,.95) 92%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  animation:frameRun 10s linear infinite;pointer-events:none}
+@keyframes frameRun{to{--fa:360deg}}
+
+/* glass-like cards: lit top edge, cursor-following highlight on hover */
+.work-card{--mx:50%;--my:0%;box-shadow:inset 0 1px 0 rgba(255,255,255,.07)}
+.work-card::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s;
+  background:radial-gradient(380px circle at var(--mx) var(--my),rgba(255,255,255,.11),transparent 45%),linear-gradient(180deg,rgba(255,255,255,.05),transparent 36%)}
+.work-card:hover::before{opacity:1}
+.work-card:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 22px 44px rgba(0,0,0,.45),0 0 0 1px rgba(226,88,42,.25)}
+
+/* cubes: a soft coloured glow under the orange ones */
+.cube:not(.dim){filter:drop-shadow(0 12px 18px rgba(226,88,42,.28))}
+
+/* skills + social icons get a soft glow */
+.skill:hover i{text-shadow:0 0 18px rgba(226,88,42,.55)}
+.rail-social a:hover,.menu-socials a:hover,.quote-socials a:hover{text-shadow:0 0 14px rgba(226,88,42,.6)}
+
+/* soft cross-fade when moving between pages (Chrome/Edge/Safari; others just navigate normally) */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vtOut .28s ease both}
+::view-transition-new(root){animation:vtIn .38s ease .05s both}
+@keyframes vtOut{to{opacity:0}}
+@keyframes vtIn{from{opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  .hero .btn-solid::after,.hero h1 b,.frame::after{animation:none}
+  .hero h1 b{background:none;-webkit-text-fill-color:currentColor;color:var(--white)}
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
 }
