@@ -607,7 +607,7 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
   background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0))}
 .cb-trigger svg{position:relative;z-index:1;width:38px;height:38px;filter:drop-shadow(0 2px 3px rgba(90,20,0,.45));transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .cb-trigger .bub{fill:#fff}
-.cb-trigger .ai{fill:#e2582a;font:800 11px Poppins,system-ui,sans-serif;letter-spacing:-.02em}
+.cb-trigger .spk{fill:#e2582a}
 .cb-trigger:hover{transform:scale(1.08);box-shadow:inset 0 2px 0 rgba(255,255,255,.5),inset 0 -6px 12px rgba(120,30,0,.35),0 14px 32px rgba(226,88,42,.62),0 0 0 1px rgba(255,170,120,.4)}
 .cb-trigger:hover svg{transform:translateY(-1px) rotate(-6deg)}
 .cb-trigger:active{transform:scale(.96)}
