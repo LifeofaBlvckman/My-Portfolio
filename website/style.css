@@ -588,7 +588,7 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
 }
 
 /* ── project preview pictures ── */
-.work-shot{position:relative;display:block;aspect-ratio:16/10;margin:-1.6rem -1.6rem 1.3rem;overflow:hidden;border-bottom:1px solid var(--line);
+.work-shot{position:relative;display:block;aspect-ratio:16/9;margin:-1.6rem -1.6rem 1.3rem;overflow:hidden;border-bottom:1px solid var(--line);
   background:radial-gradient(120% 90% at 20% 0%,rgba(226,88,42,.35),transparent 60%),linear-gradient(160deg,#241c18,#14100e)}
 .work-shot::before{content:attr(data-host);position:absolute;left:0;right:0;top:0;height:26px;display:flex;align-items:center;padding:0 .9rem 0 3.1rem;
   font-size:.62rem;letter-spacing:.04em;color:var(--muted);background:rgba(255,255,255,.04);border-bottom:1px solid var(--line);
