@@ -42,7 +42,48 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
   const chips = document.getElementById('cbChips');
 
   const wrap = trig.parentElement;
-  trig.addEventListener('click', () => {
+
+  /* The orb is draggable: it follows the finger/cursor, snaps to the nearest side edge and remembers where it was left */
+  const M = 10, KEY = 'cb_pos';
+  let dragged = false;
+  const place = (x, y, snap) => {
+    const w = trig.offsetWidth, h = trig.offsetHeight;
+    x = Math.min(Math.max(M, x), innerWidth - w - M); y = Math.min(Math.max(M, y), innerHeight - h - M);
+    wrap.classList.add('moved'); wrap.classList.toggle('snap', !!snap);
+    wrap.style.left = x + 'px'; wrap.style.top = y + 'px';
+    return { x, y };
+  };
+  const restore = () => {
+    try {
+      const p = JSON.parse(localStorage.getItem(KEY) || 'null'); if (!p || !trig.offsetWidth) return;
+      place(p.side === 'l' ? M : innerWidth - trig.offsetWidth - M, p.y * innerHeight);
+    } catch (e) {}
+  };
+  restore();
+  addEventListener('resize', restore);
+  trig.addEventListener('pointerdown', e => {
+    if (e.button) return;
+    const r = trig.getBoundingClientRect(), dx = e.clientX - r.left, dy = e.clientY - r.top, sx = e.clientX, sy = e.clientY;
+    dragged = false;
+    trig.setPointerCapture(e.pointerId);
+    const move = ev => {
+      if (!dragged && Math.hypot(ev.clientX - sx, ev.clientY - sy) < 6) return;
+      dragged = true; trig.classList.add('drag');
+      place(ev.clientX - dx, ev.clientY - dy);
+    };
+    const up = () => {
+      trig.removeEventListener('pointermove', move); trig.removeEventListener('pointerup', up); trig.removeEventListener('pointercancel', up);
+      trig.classList.remove('drag');
+      if (!dragged) return;
+      const b = trig.getBoundingClientRect(), left = b.left + b.width / 2 < innerWidth / 2;
+      const p = place(left ? M : innerWidth - b.width - M, b.top, true);
+      try { localStorage.setItem(KEY, JSON.stringify({ side: left ? 'l' : 'r', y: p.y / innerHeight })); } catch (e) {}
+    };
+    trig.addEventListener('pointermove', move); trig.addEventListener('pointerup', up); trig.addEventListener('pointercancel', up);
+  });
+
+  trig.addEventListener('click', e => {
+    if (dragged) { dragged = false; e.preventDefault(); return; }   // that was a drag, not a tap
     win.style.display = 'flex'; trig.style.display = 'none'; wrap.classList.add('open');
     if (!matchMedia('(pointer: coarse)').matches) input.focus();   // on phones, don't pop the keyboard before they ask
   });
