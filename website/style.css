@@ -458,8 +458,9 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
 .pl-glow{transform-origin:center;animation:plGlow 1.7s ease-out 1.0s both}
 /* 3 · one soft gloss sweep, then the wordmark wipes in and gets its own sweep */
 .pl-gloss{animation:plGloss 1.05s cubic-bezier(.45,0,.2,1) 1.7s both}
-.pl-wipe{animation:plWipe 1.0s cubic-bezier(.45,0,.2,1) 1.45s both}
-.pl-word{animation:plRise 1.1s cubic-bezier(.16,1,.3,1) 1.45s both}
+.pl-word path{opacity:0;animation:plLet .55s ease-out both}
+.pl-word path:nth-child(1){animation-delay:1.45s}.pl-word path:nth-child(2){animation-delay:1.52s}.pl-word path:nth-child(3){animation-delay:1.59s}.pl-word path:nth-child(4){animation-delay:1.66s}
+.pl-word path:nth-child(5){animation-delay:1.73s}.pl-word path:nth-child(6){animation-delay:1.80s}.pl-word path:nth-child(7){animation-delay:1.87s}.pl-word path:nth-child(8){animation-delay:1.94s}
 .pl-gloss2{animation-delay:2.45s;animation-duration:.9s}
 @keyframes plDraw{to{stroke-dashoffset:0}}
 @keyframes plFade{to{opacity:0}}
@@ -467,8 +468,7 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
 @keyframes plOrange{from{transform:translate(22px,22px) scale(.97);opacity:0}to{transform:none;opacity:1}}
 @keyframes plGlow{0%{opacity:0;transform:scale(.55)}45%{opacity:1}100%{opacity:.4;transform:scale(1.08)}}
 @keyframes plGloss{from{transform:translateX(-240px) skewX(-20deg)}to{transform:translateX(640px) skewX(-20deg)}}
-@keyframes plWipe{from{transform:translateX(0)}to{transform:translateX(1060px)}}
-@keyframes plRise{from{transform:translateY(16px)}to{transform:none}}
+@keyframes plLet{from{opacity:0}to{opacity:1}}
 @keyframes plBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 #preloader.pl-out{transform:translateY(-100%);pointer-events:none}
 #preloader.pl-out .pl-logo,#preloader.pl-out .pl-bar{opacity:0;transition:opacity .35s ease}
@@ -605,16 +605,26 @@ footer{padding:2rem clamp(1.5rem,6vw,6rem) 3rem;text-align:center;border-top:1px
 .cb-trigger::before{inset:-7px;border:1.5px solid rgba(255,140,80,.6)}
 .cb-trigger::after{content:'';position:absolute;left:12%;top:6%;width:76%;height:44%;border-radius:50%;pointer-events:none;
   background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,0))}
-.cb-trigger svg{position:relative;z-index:1;width:30px;height:30px;filter:drop-shadow(0 2px 3px rgba(90,20,0,.45));transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.cb-trigger svg{position:relative;z-index:1;width:38px;height:38px;filter:drop-shadow(0 2px 3px rgba(90,20,0,.45));transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .cb-trigger .bub{fill:#fff}
-.cb-trigger .spk{fill:#e2582a;transform-origin:16px 14.2px;animation:cbSpark 3.2s ease-in-out infinite}
+.cb-trigger .ai{fill:#e2582a;font:800 11px Poppins,system-ui,sans-serif;letter-spacing:-.02em}
 .cb-trigger:hover{transform:scale(1.08);box-shadow:inset 0 2px 0 rgba(255,255,255,.5),inset 0 -6px 12px rgba(120,30,0,.35),0 14px 32px rgba(226,88,42,.62),0 0 0 1px rgba(255,170,120,.4)}
 .cb-trigger:hover svg{transform:translateY(-1px) rotate(-6deg)}
 .cb-trigger:active{transform:scale(.96)}
-.cb-dot{position:absolute;right:3px;top:3px;width:13px;height:13px;border-radius:50%;background:#2fd47a;border:2.5px solid #1a1411;z-index:2;box-shadow:0 0 8px rgba(47,212,122,.7)}
-.cb-tip{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(6px,-50%);white-space:nowrap;font-size:.72rem;font-weight:500;letter-spacing:.02em;
-  color:var(--white);background:rgba(26,20,17,.92);border:1px solid var(--line);padding:.45rem .8rem;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
-.cb-trigger:hover .cb-tip,.cb-trigger:focus-visible .cb-tip{opacity:1;transform:translate(0,-50%)}
-@media(hover:none){.cb-tip{display:none}}
-@keyframes cbSpark{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.18) rotate(18deg)}}
-@media(prefers-reduced-motion:reduce){.cb-trigger .spk{animation:none}}
+
+
+
+/* intro on phones: bigger logo, tighter frame, and only simple opacity/transform animation (no masks) */
+@media(max-width:760px){
+  #preloader{gap:1.8rem}
+  #preloader::before{inset:14px}
+  .pl-logo{width:86vw}
+  .pl-bar{width:46vw}
+}
+
+/* draggable: the orb can be moved and snaps to the left or right edge */
+.cb-trigger{touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.cb-trigger.drag{cursor:grabbing;transform:scale(1.1);transition:none}
+.cb-wrap.moved{right:auto;bottom:auto}
+.cb-wrap.snap{transition:left .35s cubic-bezier(.16,1,.3,1),top .35s cubic-bezier(.16,1,.3,1)}
+@media(min-width:761px){.cb-win{position:fixed;right:3rem;bottom:3rem}}
