@@ -140,8 +140,8 @@
       <div class="eyebrow">Hello</div>
       <h1>I'm <b>Adejumo Olaoluwa</b></h1>
       <p class="hero-sub">A web developer &amp; motion designer based in Lagos.</p>
-      <div class="hero-tags"><span class="mo"><i class="fas fa-film"></i> Motion design</span><span class="cy"><i class="fas fa-shield-halved"></i> Learning cybersecurity</span></div>
-      <div class="hero-cta"><a href="about.html" class="btn btn-solid">Learn more</a><a href="cv.html" class="btn btn-line">View CV</a><a href="#motion" class="btn btn-ghost"><i class="fas fa-play"></i> Watch motion</a></div>
+      <div class="hero-tags"><span class="cy"><i class="fas fa-shield-halved"></i> Learning cybersecurity</span></div>
+      <div class="hero-cta"><a href="about.html" class="btn btn-solid">Learn more</a><a href="#motion" class="btn btn-ghost"><i class="fas fa-play"></i> Watch motion</a></div>
     </div>
     <div class="hero-vis reveal">
       <dotlottie-wc src="https://lottie.host/2af8344c-f50f-4134-a5bb-4ed073a7e947/w43GpZnn4x.lottie" autoplay loop></dotlottie-wc>
@@ -151,79 +151,38 @@
 
   <section class="home-work" id="work">
     <div class="sec-head reveal">
-      <p class="kicker">Selected work</p>
-      <h2 class="sec-title">Recent <b>builds</b></h2>
-      <p class="sec-sub">Products and client sites I've designed and shipped, from booking engines to a full 3D city.</p>
+      <p class="kicker">Latest build</p>
+      <h2 class="sec-title">Fresh off <b>the press</b></h2>
     </div>
-    <div class="works-grid reveal stagger">
-      <article class="work-card is-new">
-        <a class="work-shot" href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" aria-label="Open Iyabolaji Food" data-host="iyabolaji.vercel.app"><img src="shots/iyabolaji.jpg" alt="Iyabolaji Food website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"><span class="badge-new">New</span></a>
+    <article class="work-card feature-card is-new reveal">
+      <a class="work-shot" href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" aria-label="Open Iyabolaji Food" data-host="iyabolaji.vercel.app"><img src="shots/iyabolaji.jpg" alt="Iyabolaji Food website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"><span class="badge-new">New</span></a>
+      <div class="fc-copy">
+        <p class="fc-meta">Food brand · Lagos · Live now</p>
         <h3>Iyabolaji Food</h3>
-        <p>A loud, playful site for a Lagos food brand: menu, build-your-plate ordering, cart and a scratch-for-today’s-deal promo.</p>
+        <p>A loud, playful site for a Lagos food brand: the full menu, build-your-plate ordering with a cart, a scratch-for-today’s-deal promo, weekly drops and a hiring page.</p>
         <div class="work-tags"><span>Food ordering</span><span>Cart</span><span>Scratch deal</span></div>
-        <a href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" class="btn btn-solid btn-sm">View live</a>
-      </article>
-      <article class="work-card">
-        <a class="work-shot" href="https://sojourn.ng" target="_blank" rel="noopener" aria-label="Open Sojourn Nigeria" data-host="sojourn.ng"><img src="shots/sojourn.jpg" alt="Sojourn Nigeria website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"></a>
-        <h3>Sojourn Nigeria</h3>
-        <p>A shortlet booking platform live in four Nigerian cities. I run all implementation: frontend, backend, payments and infrastructure.</p>
-        <div class="work-tags"><span>Next.js 14</span><span>NestJS</span><span>Supabase</span><span>Paystack</span></div>
-        <a href="https://sojourn.ng" target="_blank" rel="noopener" class="btn btn-solid btn-sm">View live</a>
-      </article>
-      <article class="work-card">
-        <a class="work-shot" href="https://eko-streets.onrender.com/" target="_blank" rel="noopener" aria-label="Open Eko Streets" data-host="eko-streets.onrender.com"><img src="shots/ekostreets.jpg" alt="Eko Streets website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"></a>
-        <h3>Eko Streets</h3>
-        <p>A Lagos-set open-world browser game with story missions, drivable vehicles and real-time multiplayer for up to 16 players.</p>
-        <div class="work-tags"><span>React</span><span>Three.js</span><span>Multiplayer</span></div>
-        <a href="https://eko-streets.onrender.com/" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Play now</a>
-      </article>
-    </div>
-    <div class="sec-more reveal"><a href="projects.html" class="btn btn-line">See all nine projects <i class="fas fa-arrow-right"></i></a></div>
+        <div class="fc-actions"><a href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" class="btn btn-solid">View live</a><a href="projects.html" class="btn btn-line">All nine projects <i class="fas fa-arrow-right"></i></a></div>
+      </div>
+    </article>
   </section>
 
   <section class="motion-sec" id="motion">
-    <div class="sec-head reveal">
-      <p class="kicker">Motion design</p>
-      <h2 class="sec-title">Motion <b>films</b></h2>
-      <p class="sec-sub">Brand films I design, animate and cut myself: 3D renders, kinetic type and edits locked to the beat. Tap one to watch it with sound.</p>
-    </div>
-    <div class="reel reveal stagger">
-      <article class="reel-item">
+    <div class="feature-film reveal">
+      <div class="ff-phone">
         <button class="reel-card" type="button" data-video="motion/built-in-the-dark.mp4" aria-label="Play Built in the dark, identity film, 15 seconds">
-          <video src="motion/built-in-the-dark.mp4" poster="motion/built-in-the-dark.jpg" muted loop playsinline preload="none"></video>
+          <video src="motion/preview/built-in-the-dark.mp4" poster="motion/built-in-the-dark.jpg" muted loop playsinline preload="none"></video>
           <span class="reel-len">0:15</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
         </button>
+      </div>
+      <div class="ff-copy">
+        <p class="kicker">Motion design</p>
+        <h2 class="sec-title">Motion <b>films</b></h2>
+        <p class="sec-sub">I also design, animate and cut brand films: 3D renders, kinetic type and edits locked to the beat.</p>
         <h3>Built in the dark.</h3>
-        <p>Identity film: the B stays locked in the centre while 70 shots cut under it on the beat.</p>
+        <p class="ff-desc">My identity film: the B stays locked in the centre while 70 shots cut under it on the beat.</p>
         <div class="work-tags"><span>Identity</span><span>3D</span><span>Beat-synced</span></div>
-      </article>
-      <article class="reel-item">
-        <button class="reel-card" type="button" data-video="motion/consciousness.mp4" aria-label="Play Consciousness, edit breakdown, 17 seconds">
-          <video src="motion/consciousness.mp4" poster="motion/consciousness.jpg" muted loop playsinline preload="none"></video>
-          <span class="reel-len">0:17</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
-        </button>
-        <h3>Consciousness</h3>
-        <p>An interview-led edit with its own annotated timeline running underneath every cut.</p>
-        <div class="work-tags"><span>Edit breakdown</span><span>Kinetic type</span><span>3D</span></div>
-      </article>
-      <article class="reel-item">
-        <button class="reel-card" type="button" data-video="motion/phone-3d.mp4" aria-label="Play 2,324 views, 3D phone film, 18 seconds">
-          <video src="motion/phone-3d.mp4" poster="motion/phone-3d.jpg" muted loop playsinline preload="none"></video>
-          <span class="reel-len">0:18</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
-        </button>
-        <h3>2,324 views</h3>
-        <p>A 3D phone flies through my TikTok profile, lifts the 2k-view video out and lands on the B cube.</p>
-        <div class="work-tags"><span>3D</span><span>Camera moves</span><span>Brand film</span></div>
-      </article>
-      <article class="reel-item">
-        <button class="reel-card" type="button" data-video="motion/fair-trade.mp4" aria-label="Play Fair Trade, lyric film, 26 seconds">
-          <video src="motion/fair-trade.mp4" poster="motion/fair-trade.jpg" muted loop playsinline preload="none"></video>
-          <span class="reel-len">0:26</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
-        </button>
-        <h3>Fair Trade</h3>
-        <p>A lyric film told in phone widgets: UI motion and kinetic type cut to every bar.</p>
-        <div class="work-tags"><span>UI motion</span><span>Kinetic type</span><span>Lyric film</span></div>
-      </article>
+        <div class="fc-actions"><button type="button" class="btn btn-solid" data-play="#motion .reel-card"><i class="fas fa-volume-high"></i> Watch with sound</button><a href="projects.html#motion" class="btn btn-line">All four films <i class="fas fa-arrow-right"></i></a></div>
+      </div>
     </div>
   </section>
 
@@ -241,7 +200,7 @@
 </div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Video player" hidden>
-  <div class="lb-inner"><video id="lbVideo" controls playsinline></video><button class="lb-close" id="lbClose" type="button" aria-label="Close video"><i class="fas fa-times"></i></button></div>
+  <div class="lb-inner"><video id="lbVideo" controls playsinline preload="auto"></video><span class="lb-spin" aria-hidden="true"></span><button class="lb-close" id="lbClose" type="button" aria-label="Close video"><i class="fas fa-times"></i></button></div>
 </div>
 
 <div class="cb-wrap">
@@ -257,7 +216,7 @@
     </div>
     <div class="cb-inp"><input type="text" id="cbInput" placeholder="Ask anything…" autocomplete="off"><button id="cbSend" aria-label="Send"><i class="fas fa-arrow-up"></i></button></div>
   </div>
-  <button class="cb-trigger" id="cbTrigger" aria-label="Open AI chat (drag to move)"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="bub" d="M16 4.5c6.4 0 11.5 4.5 11.5 10.2S22.4 24.9 16 24.9c-1.5 0-2.9-.2-4.2-.7l-4.9 2.6c-.6.3-1.2-.2-1-.8l1.2-4.6C5.3 19.6 4.5 17.3 4.5 14.7 4.5 9 9.6 4.5 16 4.5z"/><path class="spk" d="M16 8.8l1.5 3.9 3.9 1.5-3.9 1.5L16 19.6l-1.5-3.9-3.9-1.5 3.9-1.5z"/></svg></button>
+  <button class="cb-trigger" id="cbTrigger" aria-label="Open AI chat (drag to move)"><svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="cbGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc39a"/><stop offset=".55" stop-color="#f07a4d"/><stop offset="1" stop-color="#e2582a"/></linearGradient></defs><path class="s1" d="M14 4Q14.9 13.1 24 14 14.9 14.9 14 24 13.1 14.9 4 14 13.1 13.1 14 4Z"/><path class="s2" d="M24.5 19.5Q24.9 23.1 28.5 23.5 24.9 23.9 24.5 27.5 24.1 23.9 20.5 23.5 24.1 23.1 24.5 19.5Z"/><path class="s3" d="M24 4.5Q24.25 6.75 26.5 7 24.25 7.25 24 9.5 23.75 7.25 21.5 7 23.75 6.75 24 4.5Z"/></svg><i class="cb-dot" aria-hidden="true"></i></button>
 </div>
 
 <script src="script.js"></script>

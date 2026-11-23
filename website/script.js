@@ -388,34 +388,56 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 })();
 
 
-/* ══ Motion films: silent previews play while on screen; tap opens a player with sound ══ */
+/* ══ Motion films ══
+   Previews are small silent files. On phones only the most visible one plays; on desktop every preview that is
+   mostly on screen plays. Everything pauses while the player is open or the tab is hidden, so the film you open
+   gets the whole connection. The player shows a spinner while it buffers. */
 (function () {
-  const cards = document.querySelectorAll('.reel-card');
+  const cards = [...document.querySelectorAll('.reel-card')];
   if (!cards.length) return;
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const io = new IntersectionObserver(entries => entries.forEach(e => {
-    const v = e.target.querySelector('video');
-    if (e.isIntersecting && !still) { v.preload = 'auto'; const p = v.play(); if (p) p.catch(() => {}); }
-    else v.pause();
-  }), { threshold: .45 });
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches, narrow = matchMedia('(max-width: 900px)');
+  const seen = new Map(cards.map(c => [c, 0]));
+  let holding = false;
+  const vid = c => c.querySelector('video');
+  const sync = () => {
+    let allow = new Set();
+    if (!holding && !still && !document.hidden) {
+      if (narrow.matches) { let best = null, top = .5; seen.forEach((r, c) => { if (r > top) { best = c; top = r; } }); if (best) allow.add(best); }
+      else seen.forEach((r, c) => { if (r >= .5) allow.add(c); });
+    }
+    cards.forEach(c => {
+      const v = vid(c);
+      if (allow.has(c)) { if (v.preload !== 'auto') v.preload = 'auto'; if (v.paused) { const p = v.play(); if (p) p.catch(() => {}); } }
+      else if (!v.paused) v.pause();
+    });
+  };
+  const io = new IntersectionObserver(es => { es.forEach(e => seen.set(e.target, e.isIntersecting ? e.intersectionRatio : 0)); sync(); }, { threshold: [0, .25, .5, .75, 1] });
   cards.forEach(c => io.observe(c));
+  if (narrow.addEventListener) narrow.addEventListener('change', sync);
+  document.addEventListener('visibilitychange', sync);
 
   const lb = document.getElementById('lightbox'), lv = document.getElementById('lbVideo'), close = document.getElementById('lbClose');
   if (!lb) return;
   let opener = null;
+  const busy = on => lb.classList.toggle('loading', on);
+  ['waiting', 'stalled', 'seeking'].forEach(ev => lv.addEventListener(ev, () => busy(true)));
+  ['playing', 'canplay', 'seeked', 'pause'].forEach(ev => lv.addEventListener(ev, () => busy(false)));
   const open = card => {
-    opener = card; lv.src = card.dataset.video; lv.poster = card.querySelector('video').poster;
+    opener = card; holding = true; sync();
+    busy(true); lv.poster = vid(card).poster; lv.src = card.dataset.video; lv.muted = false;
     lb.hidden = false; requestAnimationFrame(() => lb.classList.add('open'));
-    document.documentElement.style.overflow = 'hidden'; lv.muted = false;
-    const p = lv.play(); if (p) p.catch(() => {}); close.focus();
+    document.documentElement.style.overflow = 'hidden';
+    const p = lv.play(); if (p) p.catch(() => busy(false));
+    close.focus();
   };
   const shut = () => {
     if (lb.hidden) return;
-    lb.classList.remove('open'); lv.pause(); document.documentElement.style.overflow = '';
-    setTimeout(() => { lb.hidden = true; lv.removeAttribute('src'); lv.load(); }, 320);
+    lb.classList.remove('open'); lv.pause(); busy(false); document.documentElement.style.overflow = '';
+    setTimeout(() => { lb.hidden = true; lv.removeAttribute('src'); lv.load(); holding = false; sync(); }, 320);
     if (opener) opener.focus();
   };
   cards.forEach(c => c.addEventListener('click', () => open(c)));
+  document.querySelectorAll('[data-play]').forEach(b => b.addEventListener('click', () => { const c = document.querySelector(b.dataset.play); if (c) open(c); }));
   close.addEventListener('click', shut);
   lb.addEventListener('click', e => { if (e.target === lb) shut(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') shut(); });
