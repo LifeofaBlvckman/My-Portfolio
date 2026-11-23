@@ -112,8 +112,15 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
       say:["Sojourn Nigeria (sojourn.ng) is a shortlet apartment booking platform live in Lagos, Abuja, Port Harcourt and Benin. Ola is the lead developer — he handles all implementation while the founder owns product direction.",
            "On Sojourn, Ola built and maintains the Next.js 14 frontend, a NestJS + Supabase backend, Paystack payment flows, booking hold and auto-cancel logic, and the admin dashboard."] },
 
+    { id:'iyabolaji', match:/iyabolaji|food|jollof|restaurant|menu/,
+      say:["Iyabolaji Food (iyabolaji.vercel.app) is Ola's newest build — a loud, playful site for a Lagos food brand with the full menu, build-your-plate ordering and a cart, a scratch-for-today's-deal promo, weekly drops and a hiring page."] },
+
+    { id:'motion', match:/motion|animat|\bfilms?\b|\breel|\b3d\b|after effects|\bedit(s|ing|or)?\b/,
+      say:["Ola is also a motion designer. He makes brand films with 3D renders, kinetic type and edits cut to the beat — watch four of them in the Motion films section of the Projects page.",
+           "Besides websites, Ola designs motion: identity films, 3D phone and product shots, lyric films and edit breakdowns. They're on the Projects page under Motion films."] },
+
     { id:'projects', match:/project|portfolio|work|built|build|show me|what has he|case stud/,
-      say:["Eight featured projects: Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, Primusige, Drivers@Work, SequencePro, The Neo Consult and Eko Streets. All have live links on the Projects page.",
+      say:["Nine featured projects: Sojourn Nigeria, Iyabolaji Food, QUMI Fashion, CityGirl Wardrobe, Primusige, Drivers@Work, SequencePro, The Neo Consult and Eko Streets — plus four motion films. All on the Projects page.",
            "His range goes from a four-city booking platform down to fashion storefronts and photography portfolios. Head to Projects for live links."] },
 
     { id:'neo', match:/neo ?consult/,
@@ -144,7 +151,7 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
       say:["Ola has shipped live payment flows with both Paystack (Nigeria) and Stripe (international), including webhook hardening and booking status handling."] },
 
     { id:'skills', match:/skill|stack|tech|tools|know|language|experienc/,
-      say:["Full stack: React and Next.js on the frontend, Node/NestJS with Supabase or Firebase on the backend, plus Python, Git and payment integrations — and he's currently learning cybersecurity. Full grid on the About page."] },
+      say:["Full stack: React and Next.js on the frontend, Node/NestJS with Supabase or Firebase on the backend, plus Python, Git and payment integrations. He also does motion design (3D and kinetic type), and he's currently learning cybersecurity. Full grid on the About page."] },
 
     { id:'ai', match:/\bai\b|artificial|machine learning|chatbot|automat/,
       say:["Ola completed ALX Africa's AI for Creatives programme and applies AI practically — this chatbot, AI-assisted tooling, and automated video production in SequencePro."] },
@@ -378,4 +385,38 @@ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
       note.textContent = 'That did not send. Email prettykoke123@gmail.com instead.';
     } finally { btn.textContent = orig; btn.disabled = false; }
   });
+})();
+
+
+/* ══ Motion films: silent previews play while on screen; tap opens a player with sound ══ */
+(function () {
+  const cards = document.querySelectorAll('.reel-card');
+  if (!cards.length) return;
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    const v = e.target.querySelector('video');
+    if (e.isIntersecting && !still) { v.preload = 'auto'; const p = v.play(); if (p) p.catch(() => {}); }
+    else v.pause();
+  }), { threshold: .45 });
+  cards.forEach(c => io.observe(c));
+
+  const lb = document.getElementById('lightbox'), lv = document.getElementById('lbVideo'), close = document.getElementById('lbClose');
+  if (!lb) return;
+  let opener = null;
+  const open = card => {
+    opener = card; lv.src = card.dataset.video; lv.poster = card.querySelector('video').poster;
+    lb.hidden = false; requestAnimationFrame(() => lb.classList.add('open'));
+    document.documentElement.style.overflow = 'hidden'; lv.muted = false;
+    const p = lv.play(); if (p) p.catch(() => {}); close.focus();
+  };
+  const shut = () => {
+    if (lb.hidden) return;
+    lb.classList.remove('open'); lv.pause(); document.documentElement.style.overflow = '';
+    setTimeout(() => { lb.hidden = true; lv.removeAttribute('src'); lv.load(); }, 320);
+    if (opener) opener.focus();
+  };
+  cards.forEach(c => c.addEventListener('click', () => open(c)));
+  close.addEventListener('click', shut);
+  lb.addEventListener('click', e => { if (e.target === lb) shut(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') shut(); });
 })();

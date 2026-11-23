@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
-<title>Blvckman | Adejumo Olaoluwa — Web Developer in Lagos</title>
-<meta name="description" content="Adejumo Olaoluwa (Blvckman) — full-stack web developer in Lagos, Nigeria (Next.js, NestJS, Supabase), now learning cybersecurity. See projects, CV and get a quote.">
+<title>Blvckman | Adejumo Olaoluwa — Web Developer &amp; Motion Designer in Lagos</title>
+<meta name="description" content="Adejumo Olaoluwa (Blvckman) — full-stack web developer and motion designer in Lagos, Nigeria (Next.js, NestJS, Supabase, 3D), now learning cybersecurity. See projects, motion films, CV and get a quote.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#130f0d">
 <meta name="author" content="Adejumo Olaoluwa">
@@ -13,16 +13,16 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Blvckman">
 <meta property="og:locale" content="en_NG">
-<meta property="og:title" content="Blvckman | Adejumo Olaoluwa — Web Developer in Lagos">
-<meta property="og:description" content="Adejumo Olaoluwa (Blvckman) — full-stack web developer in Lagos, Nigeria (Next.js, NestJS, Supabase), now learning cybersecurity. See projects, CV and get a quote.">
+<meta property="og:title" content="Blvckman | Adejumo Olaoluwa — Web Developer &amp; Motion Designer in Lagos">
+<meta property="og:description" content="Adejumo Olaoluwa (Blvckman) — full-stack web developer and motion designer in Lagos, Nigeria (Next.js, NestJS, Supabase, 3D), now learning cybersecurity. See projects, motion films, CV and get a quote.">
 <meta property="og:url" content="https://blvckman.online/">
 <meta property="og:image" content="https://blvckman.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Blvckman — Adejumo Olaoluwa, web developer in Lagos, learning cybersecurity">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blvckman | Adejumo Olaoluwa — Web Developer in Lagos">
-<meta name="twitter:description" content="Adejumo Olaoluwa (Blvckman) — full-stack web developer in Lagos, Nigeria (Next.js, NestJS, Supabase), now learning cybersecurity. See projects, CV and get a quote.">
+<meta name="twitter:title" content="Blvckman | Adejumo Olaoluwa — Web Developer &amp; Motion Designer in Lagos">
+<meta name="twitter:description" content="Adejumo Olaoluwa (Blvckman) — full-stack web developer and motion designer in Lagos, Nigeria (Next.js, NestJS, Supabase, 3D), now learning cybersecurity. See projects, motion films, CV and get a quote.">
 <meta name="twitter:image" content="https://blvckman.online/og-image.png">
 <script type="application/ld+json">
 {
@@ -44,8 +44,8 @@
       "name": "Adejumo Olaoluwa",
       "alternateName": "Blvckman",
       "url": "https://blvckman.online/",
-      "jobTitle": "Web Developer",
-      "description": "Full-stack web developer in Lagos, Nigeria, learning cybersecurity.",
+      "jobTitle": "Web Developer and Motion Designer",
+      "description": "Full-stack web developer and motion designer in Lagos, Nigeria, learning cybersecurity.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Lagos",
@@ -64,6 +64,9 @@
         "Supabase",
         "TypeScript",
         "Paystack",
+        "Three.js",
+        "Motion design",
+        "3D animation",
         "Cybersecurity"
       ],
       "sameAs": [
@@ -89,6 +92,7 @@
 <div class="menu" id="menu">
   <a href="index.html" class="active">Home</a>
   <a href="projects.html">Projects</a>
+  <a href="projects.html#motion">Motion</a>
   <a href="about.html">About</a>
   <a href="cv.html">CV</a>
   <a href="about.html#quote">Get a quote</a>
@@ -101,19 +105,6 @@
 
 <div class="page">
 
-  <!-- Cubes -->
-  <div class="cube" style="--s:70px;top:6%;right:7%">
-    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
-  </div>
-  <div class="cube dim" style="--s:44px;top:22%;right:26%">
-    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#4a3c36"/><polygon points="8,28 50,52 50,96 8,72" fill="#332a25"/><polygon points="92,28 50,52 50,96 92,72" fill="#241d19"/></svg>
-  </div>
-  <div class="cube" style="--s:62px;bottom:8%;left:16%">
-    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
-  </div>
-  <div class="cube" style="--s:38px;bottom:3%;left:29%">
-    <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
-  </div>
 
   <!-- Top bar -->
   <div class="topbar">
@@ -132,19 +123,125 @@
 
   <!-- Hero -->
   <section class="hero">
+    <!-- Cubes -->
+    <div class="cube" style="--s:70px;top:6%;right:7%">
+      <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
+    </div>
+    <div class="cube dim" style="--s:44px;top:22%;right:26%">
+      <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#4a3c36"/><polygon points="8,28 50,52 50,96 8,72" fill="#332a25"/><polygon points="92,28 50,52 50,96 92,72" fill="#241d19"/></svg>
+    </div>
+    <div class="cube" style="--s:62px;bottom:8%;left:16%">
+      <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
+    </div>
+    <div class="cube" style="--s:38px;bottom:3%;left:29%">
+      <svg viewBox="0 0 100 100"><polygon points="50,4 92,28 50,52 8,28" fill="#f07a4d"/><polygon points="8,28 50,52 50,96 8,72" fill="#c24a20"/><polygon points="92,28 50,52 50,96 92,72" fill="#a83d18"/></svg>
+    </div>
     <div class="hero-copy reveal">
       <div class="eyebrow">Hello</div>
       <h1>I'm <b>Adejumo Olaoluwa</b></h1>
-      <p class="hero-sub">A web developer based in Lagos.</p>
-      <div class="hero-tags"><span class="cy"><i class="fas fa-shield-halved"></i> Learning cybersecurity</span></div>
-      <div class="hero-cta"><a href="about.html" class="btn btn-solid">Learn more</a><a href="cv.html" class="btn btn-line">View CV</a></div>
+      <p class="hero-sub">A web developer &amp; motion designer based in Lagos.</p>
+      <div class="hero-tags"><span class="mo"><i class="fas fa-film"></i> Motion design</span><span class="cy"><i class="fas fa-shield-halved"></i> Learning cybersecurity</span></div>
+      <div class="hero-cta"><a href="about.html" class="btn btn-solid">Learn more</a><a href="cv.html" class="btn btn-line">View CV</a><a href="#motion" class="btn btn-ghost"><i class="fas fa-play"></i> Watch motion</a></div>
     </div>
     <div class="hero-vis reveal">
       <dotlottie-wc src="https://lottie.host/2af8344c-f50f-4134-a5bb-4ed073a7e947/w43GpZnn4x.lottie" autoplay loop></dotlottie-wc>
     </div>
-    <div class="rail-scroll"><span class="vt">scroll down</span><i class="fas fa-chevron-down"></i></div>
+    <a class="rail-scroll" href="#work" aria-label="Scroll to recent work"><span class="vt">scroll down</span><i class="fas fa-chevron-down"></i></a>
   </section>
 
+  <section class="home-work" id="work">
+    <div class="sec-head reveal">
+      <p class="kicker">Selected work</p>
+      <h2 class="sec-title">Recent <b>builds</b></h2>
+      <p class="sec-sub">Products and client sites I've designed and shipped, from booking engines to a full 3D city.</p>
+    </div>
+    <div class="works-grid reveal stagger">
+      <article class="work-card is-new">
+        <a class="work-shot" href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" aria-label="Open Iyabolaji Food" data-host="iyabolaji.vercel.app"><img src="shots/iyabolaji.jpg" alt="Iyabolaji Food website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"><span class="badge-new">New</span></a>
+        <h3>Iyabolaji Food</h3>
+        <p>A loud, playful site for a Lagos food brand: menu, build-your-plate ordering, cart and a scratch-for-today’s-deal promo.</p>
+        <div class="work-tags"><span>Food ordering</span><span>Cart</span><span>Scratch deal</span></div>
+        <a href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" class="btn btn-solid btn-sm">View live</a>
+      </article>
+      <article class="work-card">
+        <a class="work-shot" href="https://sojourn.ng" target="_blank" rel="noopener" aria-label="Open Sojourn Nigeria" data-host="sojourn.ng"><img src="shots/sojourn.jpg" alt="Sojourn Nigeria website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"></a>
+        <h3>Sojourn Nigeria</h3>
+        <p>A shortlet booking platform live in four Nigerian cities. I run all implementation: frontend, backend, payments and infrastructure.</p>
+        <div class="work-tags"><span>Next.js 14</span><span>NestJS</span><span>Supabase</span><span>Paystack</span></div>
+        <a href="https://sojourn.ng" target="_blank" rel="noopener" class="btn btn-solid btn-sm">View live</a>
+      </article>
+      <article class="work-card">
+        <a class="work-shot" href="https://eko-streets.onrender.com/" target="_blank" rel="noopener" aria-label="Open Eko Streets" data-host="eko-streets.onrender.com"><img src="shots/ekostreets.jpg" alt="Eko Streets website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"></a>
+        <h3>Eko Streets</h3>
+        <p>A Lagos-set open-world browser game with story missions, drivable vehicles and real-time multiplayer for up to 16 players.</p>
+        <div class="work-tags"><span>React</span><span>Three.js</span><span>Multiplayer</span></div>
+        <a href="https://eko-streets.onrender.com/" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Play now</a>
+      </article>
+    </div>
+    <div class="sec-more reveal"><a href="projects.html" class="btn btn-line">See all nine projects <i class="fas fa-arrow-right"></i></a></div>
+  </section>
+
+  <section class="motion-sec" id="motion">
+    <div class="sec-head reveal">
+      <p class="kicker">Motion design</p>
+      <h2 class="sec-title">Motion <b>films</b></h2>
+      <p class="sec-sub">Brand films I design, animate and cut myself: 3D renders, kinetic type and edits locked to the beat. Tap one to watch it with sound.</p>
+    </div>
+    <div class="reel reveal stagger">
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/built-in-the-dark.mp4" aria-label="Play Built in the dark, identity film, 15 seconds">
+          <video src="motion/built-in-the-dark.mp4" poster="motion/built-in-the-dark.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:15</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>Built in the dark.</h3>
+        <p>Identity film: the B stays locked in the centre while 70 shots cut under it on the beat.</p>
+        <div class="work-tags"><span>Identity</span><span>3D</span><span>Beat-synced</span></div>
+      </article>
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/consciousness.mp4" aria-label="Play Consciousness, edit breakdown, 17 seconds">
+          <video src="motion/consciousness.mp4" poster="motion/consciousness.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:17</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>Consciousness</h3>
+        <p>An interview-led edit with its own annotated timeline running underneath every cut.</p>
+        <div class="work-tags"><span>Edit breakdown</span><span>Kinetic type</span><span>3D</span></div>
+      </article>
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/phone-3d.mp4" aria-label="Play 2,324 views, 3D phone film, 18 seconds">
+          <video src="motion/phone-3d.mp4" poster="motion/phone-3d.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:18</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>2,324 views</h3>
+        <p>A 3D phone flies through my TikTok profile, lifts the 2k-view video out and lands on the B cube.</p>
+        <div class="work-tags"><span>3D</span><span>Camera moves</span><span>Brand film</span></div>
+      </article>
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/fair-trade.mp4" aria-label="Play Fair Trade, lyric film, 26 seconds">
+          <video src="motion/fair-trade.mp4" poster="motion/fair-trade.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:26</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>Fair Trade</h3>
+        <p>A lyric film told in phone widgets: UI motion and kinetic type cut to every bar.</p>
+        <div class="work-tags"><span>UI motion</span><span>Kinetic type</span><span>Lyric film</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-band-wrap">
+    <div class="cta-band reveal">
+      <p class="kicker">Let's work</p>
+      <h2>Have a project <b>in mind?</b></h2>
+      <p>Websites, products and motion films for brands that want to be seen. Tell me what you're building and I'll reply within 24 hours.</p>
+      <div class="hero-cta"><a href="about.html#quote" class="btn btn-solid">Get a quote</a><a href="mailto:prettykoke123@gmail.com" class="btn btn-line"><i class="fas fa-envelope"></i> Email me</a></div>
+    </div>
+  </section>
+
+  <footer><p class="f-copy">&copy; 2026 Adejumo Olaoluwa. All rights reserved.</p></footer>
+
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+  <div class="lb-inner"><video id="lbVideo" controls playsinline></video><button class="lb-close" id="lbClose" type="button" aria-label="Close video"><i class="fas fa-times"></i></button></div>
 </div>
 
 <div class="cb-wrap">
