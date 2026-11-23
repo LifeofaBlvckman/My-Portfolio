@@ -5,7 +5,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 <title>Projects | Blvckman — Adejumo Olaoluwa</title>
-<meta name="description" content="Featured works by Adejumo Olaoluwa — Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, The Neo Consult, Eko Streets and more.">
+<meta name="description" content="Websites, products and motion films by Adejumo Olaoluwa — Sojourn Nigeria, Iyabolaji Food, QUMI Fashion, The Neo Consult, Eko Streets and more.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#130f0d">
 <meta name="author" content="Adejumo Olaoluwa">
@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Blvckman">
 <meta property="og:locale" content="en_NG">
 <meta property="og:title" content="Projects | Blvckman — Adejumo Olaoluwa">
-<meta property="og:description" content="Featured works by Adejumo Olaoluwa — Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, The Neo Consult, Eko Streets and more.">
+<meta property="og:description" content="Websites, products and motion films by Adejumo Olaoluwa — Sojourn Nigeria, Iyabolaji Food, QUMI Fashion, The Neo Consult, Eko Streets and more.">
 <meta property="og:url" content="https://blvckman.online/projects.html">
 <meta property="og:image" content="https://blvckman.online/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="Blvckman — Adejumo Olaoluwa, web developer in Lagos, learning cybersecurity">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Projects | Blvckman — Adejumo Olaoluwa">
-<meta name="twitter:description" content="Featured works by Adejumo Olaoluwa — Sojourn Nigeria, QUMI Fashion, CityGirl Wardrobe, The Neo Consult, Eko Streets and more.">
+<meta name="twitter:description" content="Websites, products and motion films by Adejumo Olaoluwa — Sojourn Nigeria, Iyabolaji Food, QUMI Fashion, The Neo Consult, Eko Streets and more.">
 <meta name="twitter:image" content="https://blvckman.online/og-image.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -37,6 +37,7 @@
 <div class="menu" id="menu">
   <a href="index.html">Home</a>
   <a href="projects.html" class="active">Projects</a>
+  <a href="projects.html#motion">Motion</a>
   <a href="about.html">About</a>
   <a href="cv.html">CV</a>
   <a href="about.html#quote">Get a quote</a>
@@ -64,10 +65,11 @@
 
   <div class="page-head reveal">
     <h1>Featured <b>Works</b></h1>
-    <p>Live products and client sites, from a four-city booking platform to fashion storefronts.</p>
+    <p>Live products, client sites and motion films, from a four-city booking platform to a Lagos food brand.</p>
+    <nav class="ph-nav" aria-label="Sections"><a href="#sites">Websites <span>09</span></a><a href="#motion">Motion films <span>04</span></a></nav>
   </div>
 
-  <section>
+  <section id="sites">
     <div class="works-grid reveal stagger">
 
       <article class="work-card">
@@ -76,6 +78,14 @@
         <p>A shortlet apartment booking platform live across Lagos, Abuja, Port Harcourt and Benin. I run all implementation — frontend, backend, payments and infrastructure.</p>
         <div class="work-tags"><span>Next.js 14</span><span>NestJS</span><span>Supabase</span><span>Paystack</span></div>
         <a href="https://sojourn.ng" target="_blank" rel="noopener" class="btn btn-solid btn-sm">View live</a>
+      </article>
+
+      <article class="work-card is-new">
+        <a class="work-shot" href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" aria-label="Open Iyabolaji Food" data-host="iyabolaji.vercel.app"><img src="shots/iyabolaji.jpg" alt="Iyabolaji Food website preview" loading="lazy" width="1280" height="720" onerror="this.remove()"><span class="badge-new">New</span></a>
+        <h3>Iyabolaji Food</h3>
+        <p>A loud, playful site for a Lagos food brand: the full menu, build-your-plate ordering with a cart, a scratch-for-today’s-deal promo, weekly drops and a hiring page.</p>
+        <div class="work-tags"><span>Food ordering</span><span>Cart</span><span>Scratch deal</span></div>
+        <a href="https://iyabolaji.vercel.app/" target="_blank" rel="noopener" class="btn btn-solid btn-sm">View live</a>
       </article>
 
       <article class="work-card">
@@ -135,8 +145,58 @@
     </div>
   </section>
 
+  <section class="motion-sec" id="motion">
+    <div class="sec-head reveal">
+      <p class="kicker">Motion design</p>
+      <h2 class="sec-title">Motion <b>films</b></h2>
+      <p class="sec-sub">Brand films I design, animate and cut myself: 3D renders, kinetic type and edits locked to the beat. Tap one to watch it with sound.</p>
+    </div>
+    <div class="reel reveal stagger">
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/built-in-the-dark.mp4" aria-label="Play Built in the dark, identity film, 15 seconds">
+          <video src="motion/built-in-the-dark.mp4" poster="motion/built-in-the-dark.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:15</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>Built in the dark.</h3>
+        <p>Identity film: the B stays locked in the centre while 70 shots cut under it on the beat.</p>
+        <div class="work-tags"><span>Identity</span><span>3D</span><span>Beat-synced</span></div>
+      </article>
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/consciousness.mp4" aria-label="Play Consciousness, edit breakdown, 17 seconds">
+          <video src="motion/consciousness.mp4" poster="motion/consciousness.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:17</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>Consciousness</h3>
+        <p>An interview-led edit with its own annotated timeline running underneath every cut.</p>
+        <div class="work-tags"><span>Edit breakdown</span><span>Kinetic type</span><span>3D</span></div>
+      </article>
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/phone-3d.mp4" aria-label="Play 2,324 views, 3D phone film, 18 seconds">
+          <video src="motion/phone-3d.mp4" poster="motion/phone-3d.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:18</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>2,324 views</h3>
+        <p>A 3D phone flies through my TikTok profile, lifts the 2k-view video out and lands on the B cube.</p>
+        <div class="work-tags"><span>3D</span><span>Camera moves</span><span>Brand film</span></div>
+      </article>
+      <article class="reel-item">
+        <button class="reel-card" type="button" data-video="motion/fair-trade.mp4" aria-label="Play Fair Trade, lyric film, 26 seconds">
+          <video src="motion/fair-trade.mp4" poster="motion/fair-trade.jpg" muted loop playsinline preload="none"></video>
+          <span class="reel-len">0:26</span><span class="reel-play" aria-hidden="true"><i class="fas fa-play"></i></span>
+        </button>
+        <h3>Fair Trade</h3>
+        <p>A lyric film told in phone widgets: UI motion and kinetic type cut to every bar.</p>
+        <div class="work-tags"><span>UI motion</span><span>Kinetic type</span><span>Lyric film</span></div>
+      </article>
+    </div>
+  </section>
+
   <footer><p class="f-copy">&copy; 2026 Adejumo Olaoluwa. All rights reserved.</p></footer>
 
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+  <div class="lb-inner"><video id="lbVideo" controls playsinline></video><button class="lb-close" id="lbClose" type="button" aria-label="Close video"><i class="fas fa-times"></i></button></div>
 </div>
 
 <div class="cb-wrap">
